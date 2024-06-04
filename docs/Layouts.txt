@@ -1,0 +1,8 @@
+A page is a UI that is unique to a route
+A layout is UI that is shared between multiple pages in the app
+
+How to create layouts?
+
+You can create a layout by default exporting a default exporting a React component from a layout.js or layout.tsx file
+
+That component should accept a children prop that will be populated with child page during rendering
