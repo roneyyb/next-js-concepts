@@ -3,3 +3,8 @@ A private folder indicates that it is a private implementation detail and should
 The folder and all its subfolders are excluded from routing
 
 Prefix the folder name with underscore
+
+For separating routing logic from ui logic
+For consistently organizing internal file across project
+for sorting and grouping files inside code editor
+And finally, for avoiding potential naming conflicts with future Next.js file conventions
