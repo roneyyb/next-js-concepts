@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function Page() {
+export default function ABouttt() {
     return (
-        <div>Page</div>
+
+        <div>ABouttt</div>
     )
 }
