@@ -1,0 +1,11 @@
+When you run your app nextJs find layout file in src/app folder and 
+then take page.tsx as children
+
+
+All routes must be placed inside app folder which is inside app folder.
+Every file that corresponds to a route must be named page.js or page.txt
+Every folder corresponds to a path segment in the browser URL.
+
+
+File Based Routing
+

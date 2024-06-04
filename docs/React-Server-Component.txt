@@ -1,0 +1,12 @@
+React Server components(RSC) are introduced in react 18
+
+In nextjs all component are server component
+
+1. Server components
+They have ability to run tasks like reading files or fetching data from a data base.
+However they dont have ability to use hooks or handle user interactions.
+
+
+2. Client Components
+Client component cannot make api request or run async task but they have ability to use hooks and manage interactions
+To create a client component you need to use "use client" at the top of the file.
