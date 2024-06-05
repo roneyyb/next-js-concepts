@@ -1,0 +1,22 @@
+Routing Metadata
+
+Ensuring proper SEO is crucial for increasing visibility and attracting users
+
+Next.js introduced the Metadata API which allows you to define metadata for each page
+
+Metadata ensures accurate and relevant information is displayed when your pages are shared or indexed
+
+
+Configuring Metadata
+
+With the new app router there are two ways to methods to configure metadata
+
+1. Export a static metadata object
+2. Export a dynamic generateMetadata function
+
+Metadata rules
+
+Both layout.tsx and page.tsx files can export metadata. If defined in a layout, it applies to all pages in that layout,
+but if defined in a page it applies only to that page.   
+
+
