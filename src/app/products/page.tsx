@@ -1,10 +1,11 @@
 import React from 'react'
+import Link from "next/link"
 
 function ProductList() {
     return (
         <>
-            <div>ProductList1</div>
-            <div>ProductList2</div>
+            <div><Link href="/products/1">ProductList1</Link></div>
+            <div><Link href="/products/2" replace >ProductList2</Link></div>
             <div>ProductList3</div>
         </>
     )
