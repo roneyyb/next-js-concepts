@@ -11,7 +11,7 @@ export default function RootLayout({
     return (
         <html lang="en">
 
-            <header><p style={{ backgroundColor: "blue", padding: "1rem" }}>Headerasdf</p></header>
+
             <body>{children}</body>
 
         </html>
