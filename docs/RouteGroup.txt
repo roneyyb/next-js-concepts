@@ -1,0 +1,3 @@
+To organize your project in such a manner that dosen't affect the url
+
+To selectivly apply layout to certain segments leaving other unchanged
