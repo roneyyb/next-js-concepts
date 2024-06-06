@@ -1,0 +1,5 @@
+This file allows use to create loading state that are displayed to users while a specific route segments content is loading
+
+The loading state appears immediately upon navigation, giving users the assurance that the application is responsive and
+actively loading content
+
