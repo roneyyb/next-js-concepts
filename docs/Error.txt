@@ -1,0 +1,1 @@
+Error boundary should be a client component in Nextjs
