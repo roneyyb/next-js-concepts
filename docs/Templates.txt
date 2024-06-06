@@ -1,0 +1,10 @@
+Template are similar to layouts in that they wrap each child layout or page
+
+But, with template, when a user navigates between routes that shares a template, 
+a new instance of the component is mounted, DOM elements are recreated, state is not
+preserved, and effects are re-syncronized.
+
+A template can be defined by exporting a default React component from a template.js or template.tsx file
+
+layout and template both can be present but layout will get priority first layout will replace children in root layout and then
+template will replace children in layout

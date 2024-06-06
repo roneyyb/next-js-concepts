@@ -20,13 +20,19 @@ const navLinks = [
 
 ]
 
-function Auth({ children }: { children: React.ReactNode }) {
+function AuthLayout({ children }: { children: React.ReactNode }) {
 
     const pathname = usePathname();
+    const [input, setInput] = React.useState("")
 
 
     return (
         <div>
+            <div>
+                <input value={input} onChange={e => {
+                    setInput(e.target.value)
+                }} />
+            </div>
             {navLinks.map((item, index) => {
                 const isActive = pathname.startsWith(item.href);
 
@@ -38,4 +44,4 @@ function Auth({ children }: { children: React.ReactNode }) {
     )
 }
 
-export default Auth
+export default AuthLayout
