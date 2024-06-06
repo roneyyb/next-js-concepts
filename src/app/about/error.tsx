@@ -1,9 +1,11 @@
 "use client"
 import React from 'react'
 
-function Error({ error }: { error: Error }) {
+function Error({ error, reset }: { error: Error, reset: () => void }) {
     return (
-        <div>{error.message}</div>
+        <div>{error.message}
+            <button onClick={reset}>Try Again</button>
+        </div>
     )
 }
 
