@@ -5,9 +5,12 @@ import Board from './views/Board';
 
 function TicTacToe() {
 
-    const [currentStatus, setCurrentStatus] = React.useState(Array(9).fill(null));
     const currentMove = React.useRef(0);
+    const [currentStatus, setCurrentStatus] = React.useState(Array(9).fill(null));
     const [hasSomeOneWon, setHasSomeOneWon] = React.useState(false);
+
+    const [history, setHistory] = React.useState<Array<Array<number | string>>>([]);
+
 
     React.useEffect(() => {
 
@@ -44,27 +47,45 @@ function TicTacToe() {
                 onClick={() => {
                     setCurrentStatus(Array(9).fill(null));
                     currentMove.current = 0;
+                    setHistory([])
                     setHasSomeOneWon(false)
                 }}>Reset</button>
-            <Board
-                currentStatus={currentStatus}
-                onClickBox={(i: number) => {
-                    if (currentMove.current % 2 == 0) {
-                        setCurrentStatus((cs) => {
-                            cs.splice(i, 1, "O");
-                            checkIfGameWon(i, cs)
-                            return [...cs]
-                        })
-                    } else {
-                        setCurrentStatus((cs) => {
-                            cs.splice(i, 1, "X");
-                            checkIfGameWon(i, cs)
-                            return [...cs]
-                        })
-                    }
-                    currentMove.current++;
-                }}
-            />
+            <div className='flex flex-row gap-x-4'>
+                <Board
+                    currentStatus={currentStatus}
+                    onClickBox={(i: number) => {
+                        if (currentMove.current % 2 == 0) {
+                            setCurrentStatus((cs) => {
+                                cs.splice(i, 1, "O");
+                                checkIfGameWon(i, cs)
+                                return [...cs]
+                            })
+                            history.push([i, "O"])
+                        } else {
+                            setCurrentStatus((cs) => {
+                                cs.splice(i, 1, "X");
+                                checkIfGameWon(i, cs)
+                                return [...cs]
+                            })
+                            history.push([i, "X"])
+                        }
+                        currentMove.current++;
+                    }}
+                />
+                <div>
+                    <ol>
+                        {history.map((item, index) => <li onClick={() => {
+                            console.log("onclicc")
+                            let newGameStatus = Array(9).fill(null);
+                            setHistory([...history.slice(0, index + 1)]);
+                            history.slice(0, index + 1).forEach(item => newGameStatus[+item[0]] = item[1]);
+                            console.log("onclicc", newGameStatus)
+                            setCurrentStatus([...newGameStatus])
+                        }} key={index}>Turn {index + 1} Value {item[1]} at {+item[0] + 1}</li>)}
+                    </ol>
+                </div>
+
+            </div>
         </div>
     )
 }
