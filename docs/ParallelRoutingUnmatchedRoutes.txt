@@ -1,0 +1,26 @@
+Unmatched Routes
+
+Navigation from the UI
+
+In the case of Navigation within the UI, Nextjs retains the previsouly active state of a slot
+regardless of changes in the URL.
+
+Page reload
+
+Next.js immediately searches for a default.tsx file within each unmatched slot.
+
+The presense of this file is critical, as it provides the default content that Next.js will render 
+in the user interface.
+
+If this default.tsx file is missing in any of the unmatched slots for the current route, 
+Next.js will render a 404 error
+
+
+default.tsx file
+
+The default.tsx file in Next.js serves as a fallback to render content when the framework cannot retrive 
+a slots active state from the current URL
+
+You have complete freedom to define the UI for unmatched routes: you can either mirror the content found in page.tsx
+or craft an entirely custom view 
+
