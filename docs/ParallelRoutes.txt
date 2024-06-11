@@ -1,0 +1,11 @@
+Parallel routes are advance routing mechanisms that allows for the simultaneous routing 
+of multiple pages within the same layout
+
+Paralles routes in Next.js are defined using a feature known as slots
+
+Slot helps structure our content in a modular fashion
+
+To define a slot, we use the @folder naming conventions
+
+Each slot is then passed as a prop to its corresponding "layout.tsx" file
+

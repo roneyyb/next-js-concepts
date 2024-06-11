@@ -1,4 +1,6 @@
 import { Metadata } from "next"
+import "./styles.css"
+
 export const metadata: Metadata = {
     title: {
         absolute: "",
