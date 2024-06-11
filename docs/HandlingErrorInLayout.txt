@@ -1,0 +1,3 @@
+An error.txt file will handle error for all its nested child segments
+
+The error boundary does not catch errors thrown here because its nested inside the layouts component

@@ -1,0 +1,3 @@
+Error bubble up to the closest parent error boundary
+
+And error.tsx file cater error to for all its nested child segments
