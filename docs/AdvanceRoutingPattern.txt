@@ -1,0 +1,11 @@
+Advance Routing Pattern
+
+Parallel routes
+
+Intercepting routes
+
+Intercepting routes allows you to intercept or stop the default routing behvaiour
+to present an alternate view or component when navigating through the UI, while still preserving 
+the intended route for scenarios like page reloads
+
+This can be useful if you want to show a route while keeping the context of the current page

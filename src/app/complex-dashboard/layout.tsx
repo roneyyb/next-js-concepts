@@ -4,14 +4,18 @@ function LayoutDashboard({
     children,
     users,
     revenue,
-    notifications
+    notifications,
+    login
 }: {
     children: React.ReactNode,
     users: React.ReactNode,
     revenue: React.ReactNode,
-    notifications: React.ReactNode
+    notifications: React.ReactNode,
+    login: React.ReactNode
 }) {
-    return (
+
+    const isLoggedIn = true;
+    return isLoggedIn ? (
         <div>
 
             <div>{children}</div>
@@ -25,7 +29,7 @@ function LayoutDashboard({
                 </div>
             </div>
         </div>
-    )
+    ) : (<div>{login}</div>)
 }
 
 export default LayoutDashboard
