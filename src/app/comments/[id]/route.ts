@@ -1,7 +1,8 @@
+import { type NextRequest } from "next/server";
 import { comments } from "../data";
 
 
-export async function GET(_request: Request, { params }: { params: { id: string } }) {
+export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
 
     const comment = comments.find(item => +item.id === +params.id);
 
@@ -10,7 +11,7 @@ export async function GET(_request: Request, { params }: { params: { id: string 
 }
 
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
     const body = request.json();
 
     const { text } = body;
@@ -23,7 +24,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
 
     const findCommentIndex = comments.findIndex(item => +item.id === +params.id);
 
