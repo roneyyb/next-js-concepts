@@ -1,0 +1,8 @@
+Route handler are cached be default when using the GET method with the Response objext in Next.js
+
+How to opt out of caching?
+
+- dynamic mode in Segment Config Option
+- using the request object with the get method
+- employing dynamic function like header() and cookies()
+- using any HTTP method other than Get
