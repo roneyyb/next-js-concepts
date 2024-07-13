@@ -1,0 +1,22 @@
+HTTP header represents the metadata associated with an API request and response.
+
+Request Headers
+
+They are sent by client , such as a web developer, to the server. They contain essential information about the
+request, which help server understand and process it correctly.
+
+User-Agent: which identifies the browser and operating system to the server.
+
+Accept: which indicates the content type like text, video image formats that the client can process.
+It enables the server to deliver the resource suitable for client
+ 
+Authorization: header used by the client to authenticate itself to the server
+
+Response Header:
+
+They are send back from the server to the client. They provide information about the server and data being sent to the client.
+
+Content-type: header which indicate the media type of the response. It tell the client what he data type of the returned content is.
+
+such as text/html for HTML docuements, application/json for JSON data, etc.
+
