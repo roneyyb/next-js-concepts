@@ -10,6 +10,8 @@ export function middleware(request: NextRequest) {
         response.cookies.set("theme", "dark");
     }
 
+    response.headers.set("Custom-Header", "custom-value")
+
     return response;
 
     if (request.nextUrl.pathname === "/profile") {
