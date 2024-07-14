@@ -1,0 +1,11 @@
+Middleware in nextjs is a powerful feature that offers a robust way to intercept
+and control the flow of request and responses within your application
+
+It does this at a global level significantly enhancing feature like redireciton,
+ URL rewrites, authenticaiton , header and cookies management and more.
+
+
+ Middleware allows you to specify paths where it will be active.
+
+ - Customer matcher config 
+ - Conditional statement
