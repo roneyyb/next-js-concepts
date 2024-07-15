@@ -1,0 +1,22 @@
+This method of rendering, where the component code is transformed into a user interface directly within the browser (this client),
+is known as  client-side rendering (CSR)
+
+CSR quickly became the standard for SPAs, with widespread adoption.
+
+Developer started noticing drawbacks in this approach
+
+Drawbacks of CSR
+
+SEO
+
+Generating HTML that mainly contains a single div tag is not optimal for SEO, as it provide little content for search engine to index
+
+Performance
+
+Having the browser (the client) handle all the work, such as fetching data ,computing the UI, and making the HTML interactive, can slow things down.
+User might see a blank screen or  loading spinner while the page loads.
+
+Each new feature added to the application increasesn the size of the javascript bunlde, prolonging the wait time for user to see UI.
+
+Recollecting drawbacks of CSR
+

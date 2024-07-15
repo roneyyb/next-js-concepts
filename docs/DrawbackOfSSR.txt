@@ -1,0 +1,34 @@
+Drawbacks of SSR
+1. You have to fetch everything before you can show anything
+
+Components cannot start rendering and then pause or "wait" while data is still being loaded
+If a component needs to fetch data from a database or another source (like an API), this fetching must be completed before the server can begin rendering the page
+
+Drawbacks of SSR
+1. You have to fetch everything before you can show anything
+
+Components cannot start rendering and then pause or "wait" while data is still being loaded
+If a component needs to fetch data from a database or another source (like an API), this fetching must be completed before the server can begin rendering the page
+
+This can delay the server's response time to the browser, as the server must finish collecting all necessary data before any part of the page can be sent to the client
+
+Drawbacks of SSR
+
+2. You have to load everything before you can hydrate anything
+
+For successful hydration, where React adds interactivity to the server-rendered HTML, the component tree in the browser must exactly match the server-generated component tree
+This means that all the JavaScript for the components must be loaded on the client before you can start hydrating any of them
+
+Drawbacks of SSR
+
+3. You have to hydrate everything before you can interact with anything
+React hydrates the component tree in a single pass, meaning once it starts hydrating, it won't stop until it's finished with the entire tree
+As a consequence, all components must be hydrated before you can interact with any of them.
+
+
+Drawbacks of SSR - All or Nothing Waterfall
+1. having to load the data for the entire page
+2. load the JavaScript for the entire page, and
+3. hydrate the entire page
+create an "all or nothing" waterfall problem that spans from the server to the client, where each issue must be resolved before moving to the next one
+This is inefficient if some parts of your app are slower than others, as is often the case in real-world apps

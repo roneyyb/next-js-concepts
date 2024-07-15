@@ -1,0 +1,82 @@
+https://www.youtube.com/watch?v=NdSthd1Ek8Q&list=PLC3y8-rFHvwjOKd6gdf4QtV1uYNiQnruI&index=48Suspense SSR architecture
+
+
+Use the <Suspense> component to unlock two major SSR features:
+
+1. HTML streaming on the server.
+2. Selective hydration on the client.
+
+
+Basically when you wrap any component inside suspense than it tell react that you 
+can send html for other part and no need to wait for fetching completion instead it will 
+send an fallback for that component untill the fetch is complete.
+
+HTML streaming on the Server
+You don't have to fetch everything before you can show anything
+If a particular section delays the initial HTML, it can be seamlessly integrated into the stream later
+This is the essence of how Suspense facilitates server-side HTML streaming
+
+The other challenge
+Until the JavaScript for the main section is loaded, client-side app hydration cannot start
+And if the JavaScript bundle for the main section is large, this could significantly delay the process
+
+Code spitting
+
+Code spitting allows you to mark specific code segements as not immidiately necessary
+for loading, signalling your bundler to segregate them into specific <script> tag
+
+Using React.lazy for code spitting enables you to separate the main section code from he primary javascript bundles
+
+
+The javascript containing React and the code for the entire application, excluding the main section, can now be downloaded 
+independently by the client without having to wait for the main section code 
+
+
+Selective hydration on the client
+
+By wrapping the main section from within <Suspense>, you've indicated to React that it should not prevent the rest of the 
+page from not just streaming but also from hydrating
+
+This feature called Selective hydration allows for the hydration of sections as they become available, before the 
+rest of the html and the javascript code are fully downloaded.
+
+
+Thanks to Selective hydration, a heavy pice of JS dosen't prevent the reset of the page form becoming interactive
+
+Selective hydration offers solution the the third issue: the necessity to "hydrate everything to interact with anything"
+
+React begans hydrating as soon as possible , enabling interaction with elements like the header and side navigation without waiting for the main content
+to be hydrated
+
+This process is managed automatically by React
+
+In scenarios where multiple components re awaiting hydration, React prioritizes hydration based on user interactions
+
+
+
+Drawbacks of SSR - All or Nothing Waterfall
+1. Data fetching must be completed before the server can begin rendering HTML V
+2. The JavaScript required for the components needs to be fully loaded on the client side before the hydration process can start
+3. All components have to be hydrated before they become interactive ✓
+
+
+https://chatgpt.com/share/4467e177-5171-4be5-a2be-58088920d946
+
+Drawbacks of Suspense SSR
+
+First, even though Javascript code is streamed asynchronously, eventyally, the entire code for the web page must be downloaded by the user
+
+As application add more features, the amount of code user needs to download also grows. This leads to an important question:
+Should user really have to download so much data?
+
+
+Second, the current approach requires that all React components undergo hydration on the client-side, irrespective of their actual need for interactivity
+This process can inefficiently spend resources and extend the loading times and time to interactivity for users, as their devices need to process and render components that might not even require client-side interaction
+This leads to another question:
+should all components be hydrated, even those that don't need interactivity?
+
+
+Third, in spite of servers' superior capacity for handling intensive processing tasks, the bulk of JavaScript execution still takes place on the user's device
+This can slow down the performance, especially on devices that are not very powerful
+This leads to another important question:
+should so much of the work be done on the user's device?

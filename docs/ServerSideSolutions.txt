@@ -1,0 +1,12 @@
+1. Static Site Generation(SSG)
+2. Server-Side Rendering (SSR)
+
+SSG occurs at build time, when the application is deployed on the server. This results in pages 
+that are already rendered and ready to serve. It is ideal for content that doesn't change often, like blog posts
+
+SSR, on the other hand, renders pages on-demand in response to user requests. It is suitable for personalized content 
+like social media feeds, where the HTML depends on the logged-in user
+
+
+Server-Side Rendering (SSR) was a significant improvement over Client-Side
+Rendering (CSR), providing faster initial page loads and better SEO
