@@ -5,8 +5,9 @@ function Home() {
     return (
         <>
             <div>Home</div>
-            <Link href="/blog" >Blog</Link>
-            <Link href="/products">Product</Link>
+            <Link href="/dashboard" >Dashboard</Link>
+
+            <Link style={{ display: "block" }} href="/server-side">Products</Link>
         </>
     )
 }
