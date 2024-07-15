@@ -1,0 +1,13 @@
+React Server Component (RSC) represent new architecture designed by the React team
+
+This approaches aims to leverage the strengths of both server and client environments, 
+optimizing for efficiency, load times and interactivity.
+
+The architecture introduces a dual-component model
+
+- Client Components
+- Server components
+
+
+This distinction is not based on the functionality of the components but rather on where
+they execute and the specific environments they are designed to interact with

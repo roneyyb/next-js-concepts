@@ -1,0 +1,46 @@
+Introduction to React Server Components (RSC)
+https://www.youtube.com/watch?v=5h-e5hNKx-c&list=PLC3y8-rFHvwjOKd6gdf4QtV1uYNiQnruI&index=49
+
+
+RSC is a new architecture by React team, aiming to optimize for efficiency and interactivity.
+Combines strengths of server and client environments for improved performance and load times.
+
+Introducing dual component model in Next.js 14
+
+Client components rendered on server for faster initial content loading
+Server components optimized for specific server-side execution environments
+
+
+RSC architecture allows for exclusive server-side operation
+
+RSC allows access to browser-exclusive APIs like geolocation or local storage for specific use cases.
+Server components do not send code to the client, benefiting users with slower internet connections by keeping large dependencies server-side.
+
+
+Server Components in Next.js 14 provide efficient data fetching and execution, enhancing security and data fetching efficiency.
+
+Server Components remove the hydration step, speeding up app loading and interaction, and provide direct access to server-side resources.
+Server Components enhance security by keeping sensitive data and logic on the server side, and enhance data fetching efficiency.
+
+Server Components enhance performance by shifting logic to server side
+
+Request latency is reduced and overall performance is improved by eliminating client-side waterfalls.
+Caching results on the server enables improved performance and reduced costs by minimizing rendering and data fetching.
+
+
+
+React Server Components (RSC) improve rendering efficiency
+
+RSC divides rendering into chunks for faster delivery to clients
+RSC architecture combines server and client rendering for better user experience
+
+
+React Server Components enhance app performance and user experience.
+
+Server components run on the server, accessing data and preparing content, leading to faster app speed and less data for users to download.
+Client components handle interactive parts in the user's browser, providing a fast initial load and making websites faster, more secure, and easier to use.
+
+Next.js app router is based on RSC architecture
+
+Features and benefits baked into latest version
+Focus on Next shares for React rendering strategies

@@ -1,0 +1,11 @@
+CSR -> SSR -> Suspense for SSR
+
+Suspense for SSR brought us closer to a seamless rendering experience.
+
+challenges
+
+Increase bundle sizes leading to excessing download for users
+
+Unecessary hydration delaying interactivity
+
+Extensive client-side processing that could result in poor performance
