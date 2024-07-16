@@ -1,0 +1,4 @@
+We are going to learn about the rendering lifecycle of server and client components
+
+In simpler terms, we'll explore how they come to life on your screen
+

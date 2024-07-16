@@ -1,0 +1,9 @@
+For production, an optimized build is created once and deploy that build
+A development server, on the other hand, focues on the developer experience
+
+We cant afford to build our app once, make changes, rebuild and so on
+
+For production builds, a page will be pre-rendered once when we run the build command
+
+In development mode, a page will be pre rendered or statically rendered for every request 
+

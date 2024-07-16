@@ -16,9 +16,9 @@ export async function GET(_request: NextRequest, { params }: { params: { id: str
 
 
 export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
-    const body = request.json();
+    const body: Promise<any> = request.json();
 
-    const { text } = body;
+    const { text }: any = body;
 
     const findCommentIndex = comments.findIndex(item => +item.id === +params.id);
 

@@ -8,7 +8,7 @@ function BlogFirst() {
     console.log("changesss", rerender, changes)
     if (changes) {
 
-        throw new Error(`Blog first ${changes}`);
+        // throw new Error(`Blog first ${changes}`);
         return;
     } else
         return (

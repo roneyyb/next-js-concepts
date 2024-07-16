@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function ABouttt() {
 
-    throw new Error("Error in about")
+    // throw new Error("Error in about")
 
     return (
 

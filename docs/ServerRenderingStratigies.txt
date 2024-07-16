@@ -1,0 +1,41 @@
+- Static Rendering
+
+Static Rendering is a server rendering strategy where we generate HTML pages at the 
+time of building the application
+
+This approach allows the page to be build once, cached by CDN and serverd to the client almost instantly
+
+This optimization also enables to share result of rendering work with different users, resulting in a significant performance boost of you application
+
+Static rendering is user for blog pages, ecommerce product pages, and documentation and marketing pages 
+
+How to Statically Render?
+
+Static rendering is the default rendeirng strategy in the app router
+All routes are automatically prepared at build times without additional setup
+
+So basically when you run build command you get two values on is Size and other is First Load JS
+so Size refers to asset downloaded when you navigate on client side and First Load JS refers to Size when you load page directly
+
+Prefetching
+
+Prefetching is a technique used to preload a route in the background before the user navigates to instantly
+Router are automatically prefetched as they become visible in the user's viewport,
+ wither when the page first loads or as it comes into view through scrolling
+
+ For static routes, the entire route is prefetched and cached by default
+
+When we load the homepage, Next.js prefetches te About and Dashboard routes, kepping them ready for instant navigation 
+
+Static Rendering Summary
+Static rendering is a strategy where the HTML is generated at build time
+Along with the HTML, the RSC payload is created for each component, and JavaScript chunks are produced for client-side component hydration in the browser
+If you navigate directly to a page route, the corresponding HTML file is serve
+fI you navigate to the route from a different one, the route is created on the c side using the RSC payload and JavaScript chunks, without any additional requests to the server
+
+
+
+- Dynamic Rendering
+
+
+- Streaming
