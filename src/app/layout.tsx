@@ -1,5 +1,8 @@
 import { Metadata } from "next"
 import "./styles.css"
+import { ThemeProvider } from "@/components/theme-provider"
+
+
 
 export const metadata: Metadata = {
     title: {
@@ -30,12 +33,13 @@ export default function RootLayout({
                     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
                 />
             </head>
-            <body>
-                <header><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Header</p></header>
-                {children}
-                <footer><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Footer</p></footer>
-            </body>
-
+            <ThemeProvider>
+                <body>
+                    <header><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Header</p></header>
+                    {children}
+                    <footer><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Footer</p></footer>
+                </body>
+            </ThemeProvider>
         </html>
     )
 }

@@ -1,0 +1,5 @@
+Context Providers
+Context providers are typically rendered near the root of an application to share global application state and logic
+For example, the application theme
+However, since React context is not supported in Server Components, attempting to create a context at the root of your application will result in an error
+To address this, you can create a context and render its provider inside a separate Client Component
