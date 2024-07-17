@@ -17,7 +17,19 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <link
+                    rel="stylesheet"
+                    type="text/css"
 
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+                />
+                <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+                />
+            </head>
             <body>
                 <header><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Header</p></header>
                 {children}

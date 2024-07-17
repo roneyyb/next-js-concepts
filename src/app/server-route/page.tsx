@@ -1,3 +1,4 @@
+import SimpleSlider from "@/components/carousel";
 import { serverSideFunction } from "@/utils/server-utils"
 
 export default function Page() {
@@ -8,5 +9,6 @@ export default function Page() {
     return <div>
         ServerRoutePage
         <h1>{result}</h1>
+        <SimpleSlider />
     </div>
 }
