@@ -1,0 +1,47 @@
+SErver componetn does not send their code to client.
+
+Benefits of server component
+
+Reduced Bundle Sizes
+
+Server components do not send code to the client, allowing large dependecies to remain server side.
+
+This benefits users with slower internet connections or less capable devices by eliminating the need to download, parse, and execute Javascript for these components
+
+additionally, it removed the hydration step, speeding up apploading and interactions
+
+- Direct Access to Server-side Resources
+By having direct access to server-side resources like databases or file systems, Server Components enable efficient data fetching and rendering without needing additional client-side processing
+Leveraging the server's computational power and proximity to data sources, they manage compute-intensive rendering tasks and send only interactive pieces of code to the client
+
+- Enhanced Security
+
+Server Components' exclusive server-side execution enhances security by keeping sensitive data and logic, including tokens and API keys, away from the client-sid
+
+- Improved Data Fetching
+
+Server Components enhance data fetching efficiency
+Typically, when fetching data on the client-side using useEffect, a child component cannot begin loading its data until the parent component has finished loading its own
+This sequential fetching of data often leads to poor performance
+The main issue is not the round trips themselves, but that these round trips are made from the client to the server
+Server Components enable applications to shift these sequential round trips to the server side
+By moving this logic to the server, request latency is reduced, and overall performance is improved, eliminating client-server "waterfalls"
+
+Benefits of Server Components
+Caching
+Create
+Browse
+Rendering on the server enables caching of the results, which can be reused in subsequent requests and across different users
+This approach can significantly improve performance and reduce costs by minimizing the amount of rendering and data fetching required for each request
+
+
+- Faster Initial Page Load and First Contentful Paint
+- Sixth, Initial Page Load and First Contentful Paint (FCP) are significantly improved with Server Components
+By generating HTML on the server, pages become immediately visible to users without the delay of downloading, parsing, and executing JavaScript
+Improved SEQ
+- Regarding Search Engine Optimization (SEO), the server-rendered HTML is fully
+accessible to search engine bots, enhancing the indexability of your pages
+
+- Efficient Streaming
+Server Components allows the rendering process to be divided into manageable chunks, which are then streamed to the client as soon as they are ready
+This approach allows users to start seeing parts of the page earlier, eliminating the need to wait for the entire page to finish rendering on the server

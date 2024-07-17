@@ -1,0 +1,39 @@
+Understanding the rendering lifecycle of server and client components in Next.js
+
+Exploration of how server and client components come to life on the screen
+Knowing the rendering lifecycle is not mandatory but provides insight into the process
+
+✦ Understanding the key elements of React Server Components 
+
+For React Server Components, consider browser, Next.js framework, and React library.
+Next.js app router matches URL requests for loading sequence.
+
+✦ React renders the server component and its child components as RSC payload.
+
+The server component and its child components are converted into a special JSON format known as the RSC payload.
+Inspecting the network tab when navigating to a route will reveal the RSC payload.
+
+✦ Next.js uses the RSC payload for server-side rendering
+
+Client components are prepared with instructions for later lifecycle execution
+RSC payload includes client component instructions to generate HTML on the server, streamed to the browser for fast preview
+
+✦ Client components undergo hydration
+
+Browser NS processes the streamed React response and uses the RSC payload and client component instructions to progressively render the UI.
+Once all the components and the server components output have been loaded, the final UI state is presented to the user, transforming the app from a static display into an interactive experience during the initial loading.
+
+✦ Next.js updates sequence for app refreshing
+
+Browser requests specific UI refetch
+No HTML generation for updates
+
+✦ Next.js triggers route render upon receiving streamed response
+
+React reconciles new output with existing components on screen
+React updates DOM in special JSON format while preserving UI updates
+
+✦ Next.js rendering lifecycle includes server rendering strategies.
+
+Three rendering strategies are Static rendering, Dynamic rendering, and Streaming.
+Each strategy has its own unique use cases and benefits.
