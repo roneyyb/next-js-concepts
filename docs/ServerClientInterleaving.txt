@@ -1,0 +1,1 @@
+If you want to user a server component inside client component then you will need to pass it as children
