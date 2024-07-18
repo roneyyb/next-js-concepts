@@ -1,0 +1,3 @@
+To compensate for server components nto being able to manage state and handle interactivity, you need to create client components
+
+It's recommended to posistion these client compoenets lower in your component tree
