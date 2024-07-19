@@ -15,7 +15,7 @@ export default async function UserPage() {
 
         <h1>UsersPages</h1>
         <div className="grid grid-cols-2 gap-2 p-4">
-            <h2>    {users.map((item: any) => item.name)}</h2>
+            <h1>    {users.map((item: any) => item.name)}</h1>
         </div>
     </div>
 }
