@@ -1,7 +1,7 @@
 // the data is being cached by nextjs on next requests
 import { cookies } from "next/headers";
 
-
+//Refer documentation for more details using fetchCache variable
 export default async function ProductPage() {
 
 
