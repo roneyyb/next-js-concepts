@@ -4,3 +4,6 @@ It is a server-side cache that persists the result of data fetches across incomi
 Why is it required?
 The data cache improves app performance and reduces costs by eliminating the need to re-fetch data from your data source with every request
 How does it work?
+CHECK DIAGRAM
+
+NEXTjs creates a .cache folder and check there if the data is available
