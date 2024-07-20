@@ -1,0 +1,6 @@
+Data Cache
+What is data cache?
+It is a server-side cache that persists the result of data fetches across incoming server requests and deployments
+Why is it required?
+The data cache improves app performance and reduces costs by eliminating the need to re-fetch data from your data source with every request
+How does it work?
