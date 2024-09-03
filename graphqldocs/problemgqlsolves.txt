@@ -1,0 +1,21 @@
+Graphql solves the problem of underfetching and overfetching.
+
+underfetching meaning that you dont get all data you need in one api
+call and you need to do multiple api call due to this to fetch full data.
+
+
+overfetching meaning then you need certain data and its throwing you more data than 
+required. Its wastage of resource and bandwidth.
+
+
+Graphql has only one end point that is POST.
+
+To test graphql use playground
+
+There are three kind of things that you can do in graphql?
+
+Query -> to fetch or get data
+
+Mutation -> to post update or delete data
+
+Resolver -> has logic to handle query or mutation operation

@@ -34,10 +34,10 @@ export default function RootLayout({
                 />
             </head>
             <ThemeProvider>
-                <body>
-                    <header><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Header</p></header>
-                    {children}
-                    <footer><p style={{ backgroundColor: "lightblue", padding: "1rem" }}>Footer</p></footer>
+                <body className=" h-[100vh] flex ">
+                    <div className=" flex flex-1">
+                        {children}
+                    </div>
                 </body>
             </ThemeProvider>
         </html>
