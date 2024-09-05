@@ -12,6 +12,7 @@ const GET_ALL_QUOTES = `query getAllQuotes {
 const USER_LOGIN = `mutation SigninUser($userSignin:SigninUserInput!){
   user:signinUser(userSignin:$userSignin){ 
     token
+    _id
   }
 }
 `

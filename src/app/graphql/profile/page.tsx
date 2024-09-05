@@ -13,7 +13,7 @@ export default function ProfilePage() {
 
     const { loading, error, data } = useQuery(gql`${GET_USER}`, {
         variables: { _id: localStorage.getItem("userId") },
-
+        fetchPolicy: "no-cache"
     });
 
 
@@ -39,7 +39,7 @@ export default function ProfilePage() {
                     <span>{"Name " + data.user.firstName + " " + data.user.lastName}</span>
                 </div>
                 {data.user.quotes.length > 0 && <h4>{"Quotes"}</h4>}
-                {data.user.quotes.map(item => <blockquote>{item}</blockquote>)}
+                {data.user.quotes.map(item => <blockquote>{item.name}</blockquote>)}
 
 
             </div >

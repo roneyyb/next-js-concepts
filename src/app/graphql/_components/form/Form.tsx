@@ -1,19 +1,32 @@
+"use client"
 import React from 'react'
 import { gql, useMutation } from '@apollo/client';
 import { USER_LOGIN, USER_SIGNUP } from '@/datatypes/graphql/queries';
 import { useRouter } from 'next/navigation'
 
-function Form({ onPressSubmit }: { onPressSubmit: Function }) {
+function Form({ login }: { login: boolean }) {
 
 
 
 
     const router = useRouter()
 
-    const [userLoginMutate, { data: loginData, loading }] = useMutation(gql`${USER_SIGNUP}`, {
+    const [userSignUpMutate, { data: loginData, loading }] = useMutation(gql`${USER_SIGNUP}`, {
         onCompleted: (data) => {
             console.log("data", data);
             localStorage.setItem("userId", data.user._id)
+            router.push("/graphql/login-form")
+        },
+        onError: (error) => {
+            alert(error.message)
+        }
+    });
+
+    const [userLoginMutate, { loading: loginLoading }] = useMutation(gql`${USER_LOGIN}`, {
+        onCompleted: (data) => {
+            console.log("data login", data);
+            localStorage.setItem("userId", data.user._id);
+            localStorage.setItem("auth_token", data.user.token)
             router.push("/graphql/quotes")
         },
         onError: (error) => {
@@ -47,14 +60,14 @@ function Form({ onPressSubmit }: { onPressSubmit: Function }) {
                             Sign in to your account
                         </h1>
                         <form className="space-y-4 md:space-y-6" action="#">
-                            <div>
+                            {!login && <div>
                                 <label for="First Name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your First Name</label>
                                 <input type="First Name" name="First Name" id="First Name" value={data["firstName"]} onChange={(e) => { onSetData("firstName", e.target.value) }} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
-                            </div>
-                            <div>
+                            </div>}
+                            {!login && <div>
                                 <label for="lastName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                 <input type="lastName" name="lastName" id="lastName" value={data["lastName"]} onChange={(e) => { onSetData("lastName", e.target.value) }} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
-                            </div>
+                            </div>}
                             <div>
                                 <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                 <input type="email" name="email" id="email" value={data["email"]} onChange={(e) => { onSetData("email", e.target.value) }} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" />
@@ -75,13 +88,24 @@ function Form({ onPressSubmit }: { onPressSubmit: Function }) {
                                 <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                             </div>
                             <button onClick={(e) => {
-                                userLoginMutate({
-                                    variables: {
-                                        userNew: {
-                                            ...data
+                                if (!login) {
+                                    userSignUpMutate({
+                                        variables: {
+                                            userNew: {
+                                                ...data
+                                            }
                                         }
-                                    }
-                                })
+                                    })
+                                } else {
+                                    userLoginMutate({
+                                        variables: {
+                                            userSignin: {
+                                                password: data.password,
+                                                email: data.email
+                                            }
+                                        }
+                                    })
+                                }
                                 e.preventDefault();
 
                             }} type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>

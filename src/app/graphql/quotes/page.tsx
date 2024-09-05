@@ -9,7 +9,7 @@ export default function GetQuotes() {
 
 
 
-    const { loading, error, data } = useQuery(gql`${GET_ALL_QUOTES}`);
+    const { loading, error, data } = useQuery(gql`${GET_ALL_QUOTES}`, { fetchPolicy: "no-cache" });
 
 
 

@@ -16,7 +16,7 @@ function AuthLayout({
 
 
 
-    const userId = localStorage.getItem("userId")
+    const userId = localStorage.getItem("auth_token")
 
     const [rerender, setRerender] = React.useState(false);
     const router = useRouter()
@@ -43,9 +43,9 @@ function AuthLayout({
         // }).then((res) => res.json()).then((data) => {
         //     console.log("Datq", data)
         // })
-        if (userId) {
-            router.push("/graphql/home")
-        }
+        // if (userId) {
+        //     router.push("/graphql/home")
+        // }
     }, []);
 
 
@@ -58,11 +58,11 @@ function AuthLayout({
             <div className=' gap-x-2 flex flex-row'>
 
                 {!userId && <Link href={"/graphql/login-form"}>{"Login"}</Link>}
-                {/* <Link href={"/graphql/signup"}>{"Signup"}</Link> */}
+                <Link href={"/graphql/signup-form"}>{"Signup"}</Link>
                 {userId && <Link href={"/graphql/create-quote"}>{"Create-Quote"}</Link>}
                 {userId && <Link href={"/graphql/profile"}>{"Profile"}</Link>}
                 {userId && <button onClick={() => {
-                    localStorage.removeItem("userId");
+                    localStorage.removeItem("auth_token");
                     setRerender(!rerender);
                     router.push("/graphql")
                 }}>{"Logout"}</button>}
@@ -71,7 +71,7 @@ function AuthLayout({
         </div>
         {children}
         {login}
-
+        {signup}
     </div>
 }
 

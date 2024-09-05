@@ -6,6 +6,6 @@ import LoginForm from "../../../_components/form/Form";
 export default function Login() {
 
     return <Modal  >
-        <LoginForm login={true} />
+        <LoginForm login={false} />
     </Modal>
 }

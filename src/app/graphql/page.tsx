@@ -6,8 +6,10 @@ function AuthPage() {
         <div>
 
             <h1>Login Form</h1>
+            <div />
             <Link href={"/graphql/login-form"} >{"Login"}</Link>
-            <Link href={"/graphql/login"} >{"Signup"}</Link>
+            <div />
+            <Link href={"/graphql/signup-form"} >{"Signup"}</Link>
         </div>
     )
 }

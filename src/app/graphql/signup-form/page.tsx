@@ -8,6 +8,6 @@ export default function Page() {
 
 
     return (
-        <LoginForm login={true} />
+        <LoginForm login={false} />
     )
 }

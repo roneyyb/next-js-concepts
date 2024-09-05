@@ -11,7 +11,7 @@ export default function CreateQuotePage() {
 
         context: {
             headers: {
-                authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ4M2E2ZWJmNWExMDJkOWE2ZGUyZTgiLCJpYXQiOjE3MjU1MTg2OTB9.A8r5dZaLgReYKXv3cGmZTFoDxMNtY2KD50EeK_onqd8`, // Pass the Authorization header
+                authorization: localStorage.getItem("auth_token"), // Pass the Authorization header
             },
         },
 
