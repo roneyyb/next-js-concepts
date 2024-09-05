@@ -3,6 +3,10 @@ import "./styles.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
 
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
+import { ApolloWrapper } from "@/components/apollo-provider";
+
+
 
 export const metadata: Metadata = {
     title: {
@@ -18,28 +22,34 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
-    return (
-        <html lang="en">
-            <head>
-                <link
-                    rel="stylesheet"
-                    type="text/css"
 
-                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-                />
-                <link
-                    rel="stylesheet"
-                    type="text/css"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-                />
-            </head>
-            <ThemeProvider>
-                <body className=" h-[100vh] flex ">
-                    <div className=" flex flex-1">
-                        {children}
-                    </div>
-                </body>
-            </ThemeProvider>
-        </html>
+
+    return (
+        <ApolloWrapper >
+            <html lang="en">
+                <head>
+                    <link
+                        rel="stylesheet"
+                        type="text/css"
+
+                        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+                    />
+                    <link
+                        rel="stylesheet"
+                        type="text/css"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+                    />
+                </head>
+                <ThemeProvider>
+                    {/* <ApolloProviderApp> */}
+                    <body className=" h-[100vh] flex ">
+                        <div className=" flex flex-1">
+                            {children}
+                        </div>
+                    </body>
+                    {/* </ApolloProviderApp> */}
+                </ThemeProvider>
+            </html>
+        </ApolloWrapper>
     )
 }

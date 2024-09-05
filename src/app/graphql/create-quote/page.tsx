@@ -1,9 +1,35 @@
 "use client"
+import { CREATE_QUOTE } from '@/datatypes/graphql/queries';
+import { gql, useMutation } from '@apollo/client';
 import React from 'react'
 
 export default function CreateQuotePage() {
 
     const [quote, setQuote] = React.useState("");
+
+    const [createQuoteMutate, { data: loginData, loading }] = useMutation(gql`${CREATE_QUOTE}`, {
+
+        context: {
+            headers: {
+                authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ4M2E2ZWJmNWExMDJkOWE2ZGUyZTgiLCJpYXQiOjE3MjU1MTg2OTB9.A8r5dZaLgReYKXv3cGmZTFoDxMNtY2KD50EeK_onqd8`, // Pass the Authorization header
+            },
+        },
+
+        onCompleted: (data) => {
+
+            alert("QUOTE SAVED SUCCESSFULLY")
+        },
+        onError: (error) => {
+            alert(error.message)
+        },
+
+    });
+
+
+    if (loading) {
+        return <div>{"Loading ..."}</div>
+    }
+
 
     return (
         <div
@@ -16,6 +42,10 @@ export default function CreateQuotePage() {
             }} />
             <button onClick={(e) => {
                 e.preventDefault();
+                createQuoteMutate({
+                    variables: { quoteInput: { name: quote } },
+
+                })
 
             }} className=' w-full bg-slate-600 rounded-sm '>
 

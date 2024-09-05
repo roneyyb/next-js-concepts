@@ -1,6 +1,25 @@
 import React from 'react'
+import { gql, useMutation } from '@apollo/client';
+import { USER_LOGIN, USER_SIGNUP } from '@/datatypes/graphql/queries';
+import { useRouter } from 'next/navigation'
 
 function Form({ onPressSubmit }: { onPressSubmit: Function }) {
+
+
+
+
+    const router = useRouter()
+
+    const [userLoginMutate, { data: loginData, loading }] = useMutation(gql`${USER_SIGNUP}`, {
+        onCompleted: (data) => {
+            console.log("data", data);
+            localStorage.setItem("userId", data.user._id)
+            router.push("/graphql/quotes")
+        },
+        onError: (error) => {
+            alert(error.message)
+        }
+    });
 
     const [data, setData] = React.useState<{ [key: string]: string }>({});
 
@@ -9,6 +28,10 @@ function Form({ onPressSubmit }: { onPressSubmit: Function }) {
             data[name] = value;
             return { ...data }
         })
+    }
+
+    if (loading) {
+        return <div>{"Loading ..."}</div>
     }
 
     return (
@@ -52,7 +75,13 @@ function Form({ onPressSubmit }: { onPressSubmit: Function }) {
                                 <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                             </div>
                             <button onClick={(e) => {
-                                onPressSubmit(data)
+                                userLoginMutate({
+                                    variables: {
+                                        userNew: {
+                                            ...data
+                                        }
+                                    }
+                                })
                                 e.preventDefault();
 
                             }} type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>

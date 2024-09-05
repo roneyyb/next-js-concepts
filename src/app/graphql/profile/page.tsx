@@ -1,8 +1,28 @@
+"use client"
+import { GET_USER } from '@/datatypes/graphql/queries';
+import { gql, useQuery } from '@apollo/client';
 import React from 'react'
 
 
 
 export default function ProfilePage() {
+
+
+
+
+
+    const { loading, error, data } = useQuery(gql`${GET_USER}`, {
+        variables: { _id: localStorage.getItem("userId") },
+
+    });
+
+
+    if (loading) {
+        return <div>{"Loading..."}</div>
+    }
+
+    console.log(data, "Data")
+
     return (
         <div style={{
 
@@ -13,14 +33,15 @@ export default function ProfilePage() {
             }} />
             < div className=' flex flex-col gap-y-2 justify-center items-center' >
                 <div className=' flex flex-row'>
-                    <span>{"Email " + "bothra.rajat08@gmail.com"}</span>
+                    <span>{"Email " + data.user.email}</span>
                 </div>
                 <div className=' flex flex-row'>
-                    <span>{"Name " + "Rajat Bothra"}</span>
+                    <span>{"Name " + data.user.firstName + " " + data.user.lastName}</span>
                 </div>
-                <h4>{"Quotes"}</h4>
-                <blockquote>{"Not attatching to past in the way to live in present moment"}</blockquote>
-                <blockquote>{"Dont let your past failure impace future actions"}</blockquote>
+                {data.user.quotes.length > 0 && <h4>{"Quotes"}</h4>}
+                {data.user.quotes.map(item => <blockquote>{item}</blockquote>)}
+
+
             </div >
 
         </div >
