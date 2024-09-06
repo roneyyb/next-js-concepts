@@ -1,5 +1,5 @@
 "use client"
-import { CREATE_QUOTE } from '@/datatypes/graphql/queries';
+import { CREATE_QUOTE, GET_ALL_QUOTES } from '@/datatypes/graphql/queries';
 import { gql, useMutation } from '@apollo/client';
 import React from 'react'
 
@@ -8,7 +8,7 @@ export default function CreateQuotePage() {
     const [quote, setQuote] = React.useState("");
 
     const [createQuoteMutate, { data: loginData, loading }] = useMutation(gql`${CREATE_QUOTE}`, {
-
+        refetchQueries: [GET_ALL_QUOTES, "getAllQuotes"],
         context: {
             headers: {
                 authorization: localStorage.getItem("auth_token"), // Pass the Authorization header
