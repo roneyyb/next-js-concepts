@@ -1,0 +1,3 @@
+How to set up NextJS 14 with Apollo Client?
+
+https://medium.com/@sehrawy/how-to-set-up-nextjs-14-with-apollo-client-754a177e0a00
