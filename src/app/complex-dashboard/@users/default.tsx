@@ -3,9 +3,7 @@ import React from 'react'
 function DefaultComplexDashboardUsers
     () {
     return (
-        <div>DefaultComplexDashboardUsers
-
-        </div>
+        null
     )
 }
 

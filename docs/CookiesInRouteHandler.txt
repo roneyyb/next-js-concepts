@@ -7,3 +7,17 @@ Cookies are mainly user for three purposes
 Session management like logins and shopping carts
 Personalization like user preferences and themes
 Traking like recording and analyzing user behaviour
+
+Cookies are small text files that websites send to your browser to identify you and remember your preferences.
+ They can make your browsing experience easier and more personalized. 
+How cookies work
+When you visit a website, your browser sends data to the website's server. 
+The server sends back a cookie to your browser. 
+The cookie is stored in a temporary folder on your device. 
+The cookie helps the website remember your preferences and browsing history. 
+How cookies are used
+Shopping carts: E-commerce websites use cookies to remember what's in your cart between visits. 
+Targeted ads: Advertisers use cookies to track your browsing habits and show you ads based on your interests. 
+Logins: Websites use cookies to remember your login information. 
+Cookie privacy
+Third-party cookies can be a privacy concern because they allow companies to track your behavior without your knowledge. Unsecured cookies can also be a security risk. 
